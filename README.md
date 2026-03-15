@@ -1,0 +1,1 @@
+An Implementation of Pong using only discrete logic. No firmware in sight! Using the 74xx family of chips. Currently building the simulation in Digital (hneeman) before assembling on breadboards, and perhaps a PCB eventually :]!
