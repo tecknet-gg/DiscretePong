@@ -8,7 +8,7 @@ After the simulation is completed, I'll build it out on a breadboard before movi
 | ----------------------------- | ----------- | --------------------------------------------------------------------------- |
 | VGA Driver                    | Complete    | Implemented with discrete ICs. Generic NOT gates left in for wiring sanity. Maybe switch out ANDs in CLR logic to NANDs. |
 | Paddle Rendering              | Complete    | Complete and optimised. Uses XNORs for comparison (equality) a counter for the Y instead of an adder and a latch.|
-| Paddle Movement               | Complete    | Novel Clock pass through using ANDs for enabling counters. Direction controlled using ORs feeding into the U/D of the counters |
+| Paddle Movement               | Complete    | Novel clock pass through to contol direction of counters individually. |
 | Ball Rendering                | WIP           | -                                                                           |
 | Ball Movement                 | WIP           | -                                                                           |
 | Collision Detection + Rebound | -           | -                                                                           |
