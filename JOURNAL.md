@@ -1029,3 +1029,19 @@ Polished implementation of x and y accum + coordinates. very fun. just noticed t
 
 **Total time spent: 1.00 hours**
 
+
+# May 20, 8 PM: De-abstracting the rendering logic
+
+The old ball rendering logic was hand wavey and just served to let me iterate on the speed control logic. It used comparators and adders, which I would ideally avoid. To rectify this issue, I re-visted the paddle rendering fiasco of way back when and am using XNORs for bit comparison, feeding into a simple latch, which enables a counter, that resets after counting to 8 and thus rendering a beautiful 8x8 ball (over the older 9x9 ball). Took me a moment to re-aquaint myself with my logic by digging up the old journals:
+
+<img width="753" height="797" alt="image" src="https://github.com/user-attachments/assets/5db7d828-d720-485e-9cb9-6a800384d624" />
+
+
+But once I got that, it was pain-free, well until I was beffudled for a while as to why my Y was getting squashed, before realising that I have to clock my vertical counter with the overflow of the horizontal counters because the way VGA works, is that the pencil moves left to right, top to bottom, so obviously top to bottom is slower, proportional to the width of the screen. :]
+
+With that all figured out, I wired it up, and and-ded the signals together, and now we have a less abstract logic. Next step is to convert this to actual ICs :]
+
+<img width="928" height="713" alt="image" src="https://github.com/user-attachments/assets/13433d13-a855-4b96-b09a-7ccc5ebfd41e" />
+
+**Total time spent: 0.67 hours**
+
