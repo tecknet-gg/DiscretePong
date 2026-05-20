@@ -4,16 +4,16 @@ After the simulation is completed, I'll build it out on a breadboard before movi
 
 ## Subsystems:
 
-| System                        | Status      | Notes                                                                       |
-| ----------------------------- | ----------- | --------------------------------------------------------------------------- |
-| VGA Driver                    | Complete    | Implemented with discrete ICs. Generic NOT gates left in for wiring sanity. Maybe switch out ANDs in CLR logic to NANDs. |
-| Paddle Rendering              | Complete    | Complete and optimised. Uses XNORs for comparison (equality) a counter for the Y instead of an adder and a latch.|
-| Paddle Movement               | Complete    | Novel clock pass through to contol direction of counters individually. |
-| Ball Rendering                | WIP           | Added generic placeholder logic using COMPARATORS. Will replace with logic similar to that of the paddles.  |
-| Ball Movement                 | WIP           | Added generic logic using accumulators (4 bit registers). 16 speed values, individually addressable for x and y. |
-| Collision Detection + Rebound | -           | -                                                                           |
-| Score Keeping                 | -           | -                                                                           |
-| Master Reset                  | Complete    | Simple latch. Has a START and RESET button. Enables global rendering pipeline. |
+| System                        | Status   | Notes                                                                                                                    |
+| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| VGA Driver                    | Complete | Implemented with discrete ICs. Generic NOT gates left in for wiring sanity. Maybe switch out ANDs in CLR logic to NANDs. |
+| Paddle Rendering              | Complete | Complete and optimised. Uses XNORs for comparison (equality) a counter for the Y instead of an adder and a latch.        |
+| Paddle Movement               | Complete | Novel clock pass through to contol direction of counters individually.                                                   |
+| Ball Rendering                | WIP      | Lower level XNOR based logic implemented. Will replace with actual ICs.                                                  |
+| Ball Movement                 | WIP      | Added generic logic using accumulators (4 bit registers). 16 speed values, individually addressable for x and y.         |
+| Collision Detection + Rebound | -        | -                                                                                                                        |
+| Score Keeping                 | -        | -                                                                                                                        |
+| Master Reset                  | Complete | Simple latch. Has a START and RESET button. Enables global rendering pipeline.                                           |
 
 
 
