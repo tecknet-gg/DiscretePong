@@ -1045,3 +1045,25 @@ With that all figured out, I wired it up, and and-ded the signals together, and 
 
 **Total time spent: 0.67 hours**
 
+# May 21, 8 PM: Implementing render logic with ICs
+
+I started and finished my v1 implementation of the ball rendering pipeline using discrete ICs. Its not my best work, currently uses 12ICs, with 2 not being fully used, (one of them is explainable, but the other is and AND gate with just 1/4 and's used ;-;). I struggle to see where I can optimise anything right now, but maybe I'll see something later, who knows...
+
+Waffling aside, here's the implementation:
+
+<img width="1097" height="730" alt="image" src="https://github.com/user-attachments/assets/fd13de0d-a023-46f1-860e-f649acd8048f" />
+
+Its pretty bog standard, using 747266s for the XNOR, as before, 7430 8 input NANDs to simplify stuff a bit (at the cost of a NOT), going into some 7408s to handle the stray bits. They feed nicely into a 7474 used as a Latch. The counters are two 74163s, with the 4th bit (Q3) restting both the latch and the counters when it flips to a 1. Very verbose, I'll see how I can perhaps optimise ICs later. 
+
+Implmenting the rendering with discrete ICs took about an 45 minutes start to finish, including debugging :]
+
+I apologise for the rather dry entry, a lot of this stuff is pretty bog standard, and I've hit my stide in implmenting such systems. More fun to come when I start working on collision (oh boy...)
+
+Heres a sneaky little overview of everything wired up so far :]
+
+<img width="1129" height="533" alt="image" src="https://github.com/user-attachments/assets/27fc5db0-27ea-46a6-b7f4-a6d23651da38" />
+
+
+**Total time spent: 0.75 hours**
+
+
