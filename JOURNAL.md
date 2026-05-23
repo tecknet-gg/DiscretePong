@@ -1066,7 +1066,7 @@ Heres a sneaky little overview of everything wired up so far :]
 
 **Total time spent: 0.75 hours**
 
-# May 23, 8 PM: Debugging
+# May 23, 9 AM: Debugging 
 
 Basically I have this issue where the ball is now rendering at the top of the screen, and I'm getting duplicates:
 
