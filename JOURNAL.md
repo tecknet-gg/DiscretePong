@@ -1125,6 +1125,9 @@ I also fixed the rendering issue by tieing in the 10th bit of the X. Simple enou
 
 For my sanity that also involved re-wiring everything so I wasn't dragging one of my signals across the entire system to put it into the empty XNOR.
 
+<img width="1111" height="594" alt="image" src="https://github.com/user-attachments/assets/a93c5384-52a8-4883-b0d0-1f727acc9502" />
+
+
 **Total time spent: 0.75 hours**
 
 
