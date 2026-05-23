@@ -1099,8 +1099,36 @@ Unfortunately the speed controller does nothing to help, since it has the same i
 I'm 95% confident that this will resolve itself after I implement it with the 74193. So thats probably what I'm going to do. Now time to fix the ball rendering itself. I think I'll probably just re-wire it all together since wiring usually improves exponentially with further iterations, as seen in the progression of this project. I'm going to get to that this evening should time permit, but that was a nice little debugging session :]
 
 
-
 **Total time spent: 1 hours**
+
+# May 23 4PM: Fixing stuff ;-;
+
+I started with the loading issue I found this morning. I regret this ;-;
+
+<img width="457" height="523" alt="image" src="https://github.com/user-attachments/assets/2daffa3e-7702-45ba-9750-3faf62021661" />
+
+I frankensteined it to the current load as well and things didn't go well, mainly because I assumed it was a 4 bit counter cuz the registers were, before remembering I'm using a 10 bit coordinate system ;-;
+
+Not fun. 
+
+Then I gave it a thought for more than 20 seconds and realised that implementing everything in discrete ic's before I even have collision detection is probably not the wisest idea. I made a quick compromise and clocked the speed control counter with the ball clock, so while the ball is constantly accelerating, it did resolve the load issue :]
+
+<img width="630" height="502" alt="image" src="https://github.com/user-attachments/assets/e3edcc52-ab34-4a61-b280-cd3cb39c7d6d" />
+
+I then realised that if I want to be able to control the y speed, i can't just clock it with the ball reset pulse. So I just threw it into an OR gate with the pulse to increase or decrease the speed, and voila :]
+
+<img width="721" height="252" alt="image" src="https://github.com/user-attachments/assets/6ac9156e-20f5-42eb-ab81-69815531b680" />
+
+I also fixed the rendering issue by tieing in the 10th bit of the X. Simple enough :]
+
+<img width="270" height="281" alt="image" src="https://github.com/user-attachments/assets/f50c29fb-a538-4a1f-9556-90c89a7676e3" />
+
+For my sanity that also involved re-wiring everything so I wasn't dragging one of my signals across the entire system to put it into the empty XNOR.
+
+**Total time spent: 0.75 hours**
+
+
+
 
 
 
