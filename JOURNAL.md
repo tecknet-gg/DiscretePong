@@ -1066,4 +1066,41 @@ Heres a sneaky little overview of everything wired up so far :]
 
 **Total time spent: 0.75 hours**
 
+# May 23, 8 PM: Debugging
+
+Basically I have this issue where the ball is now rendering at the top of the screen, and I'm getting duplicates:
+
+<img width="629" height="564" alt="image" src="https://github.com/user-attachments/assets/8c3b3a3d-f89f-4971-8682-80cb252087ab" />
+
+<img width="670" height="491" alt="image" src="https://github.com/user-attachments/assets/e5dd3205-e97a-49e8-847f-ba38b6b0cb63" />
+
+Which isn't the most fun. I think the duplicate issue is easily enough resolved by just feeding the 10th x bit into an XNOR too. I have 5 quad XNORs, making 20 XNORs, enough for 10 each between the x and y the so I'll rewire my rendering system to fix that. The location its rendering in is a much more curious issue.
+
+After a bit of probing (yes it took me a while..), I realise I was feeding it the wrong input (bsx isntead of bsy). But to me that find was even more confusing, since if it was loading the x value, it still shouldn't be at the top of the screen. Regardless, I swap that out, and its still stuck.
+
+Whilst I mulled over this, I quickly threw together a speed control for the y value and plugged that in:
+
+<img width="363" height="284" alt="image" src="https://github.com/user-attachments/assets/6beb3182-d9e0-4ad5-959e-af52399c0617" />
+
+Basically just a counter with direction control that feeds into the speed register, so on every clock (hitting the F button), it should increase or decrease the speed. Fun!
+
+To continue with debugging, I threw together this bit debugger:
+
+<img width="379" height="443" alt="image" src="https://github.com/user-attachments/assets/6689a49c-8d0b-41b2-bb33-3a9ec6c1737d" />
+
+And that revealed a lot, when I hit the load button (A), the X value loaded fine, but the Y value remained as 0. Odd. 
+
+<img width="451" height="414" alt="image" src="https://github.com/user-attachments/assets/921286d5-22b7-4fad-be71-83e0afc6f646" />
+
+The load pin is connected correclty, clear is set low, its enabled, its seeind the correct load value, direction latch exists. Must be the clock.. And it was. The generic IC doesn't have parallel load like the 74193s that I used elsewhere, meaning it doesn't load anything till the next clock cycle. Lovely little headache :]
+
+Unfortunately the speed controller does nothing to help, since it has the same issue, of not loading the value because of the clock. My short term solution was to replace the 0 load with a 1 so I can verify that it would work because with a clock of 1, it would overflow eventually, causing the main counter to clock, and load the pin, but I can't even really test that now.
+
+I'm 95% confident that this will resolve itself after I implement it with the 74193. So thats probably what I'm going to do. Now time to fix the ball rendering itself. I think I'll probably just re-wire it all together since wiring usually improves exponentially with further iterations, as seen in the progression of this project. I'm going to get to that this evening should time permit, but that was a nice little debugging session :]
+
+
+
+**Total time spent: 1 hours**
+
+
 
