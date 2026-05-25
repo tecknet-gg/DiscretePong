@@ -193,7 +193,7 @@ For the next session, I'll probably start working on implementing it with actual
 
 On another note, I should also work on hierarchical sheets, instead of producing everything on a singular sheet. Don't really know if its worth the hassle, Digital does have an infite canvas, and I like working like this.
 
-GitHub will be setup soon though, I don't trust my self with not loosing the file.
+ will be setup soon though, I don't trust my self with not loosing the file.
 
 **Total time spent: 1 hours**
 
@@ -281,7 +281,7 @@ Here's a little photo of the monitor doing its thing:
 
 ![image](https://stasis.hackclub-assets.com/images/1773693231748-2ycjpa.png)
 
-I've kept the old SYNC logic in the file just in case. Will upload the new .dig to the GitHub soon. A thing of note, fanning out the 10 bit comparator IC into the 3 compoenent bits seems to have improved performance, not entirely sure how, but its running significantly faster. Of cause its just correlation, not causal just yet, but thought I'd mention it :]
+I've kept the old SYNC logic in the file just in case. Will upload the new .dig to the  soon. A thing of note, fanning out the 10 bit comparator IC into the 3 compoenent bits seems to have improved performance, not entirely sure how, but its running significantly faster. Of cause its just correlation, not causal just yet, but thought I'd mention it :]
 
 Note after writing this journal entry:
 
@@ -879,6 +879,12 @@ Spent a couple minutes revising the documentation on the GitHub repo, and adding
 
 
 ![image](https://stasis.hackclub-assets.com/images/1775753455122-7epyp2.png)
+
+<img width="320" height="269" alt="8oZd2iuEuWt" src="https://github.com/user-attachments/assets/6dcf5896-10b7-4f32-8599-cc6d7fd312da" />
+
+<img width="428" height="860" alt="8oZd23AFdub" src="https://github.com/user-attachments/assets/3200ec39-843f-49b8-8320-c4c9a152e887" />
+
+
 
 (this wasn't the only addition, check out the repo if you want to see all changes added :] )
 
