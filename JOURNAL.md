@@ -1070,7 +1070,7 @@ Heres a sneaky little overview of everything wired up so far :]
 <img width="1129" height="533" alt="image" src="https://github.com/user-attachments/assets/27fc5db0-27ea-46a6-b7f4-a6d23651da38" />
 
 
-**Total time spent: 0.75 hours**
+**Total time spent: 1.25 hours**
 
 # May 23, 9 AM: Debugging 
 
