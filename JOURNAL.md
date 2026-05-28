@@ -1136,6 +1136,45 @@ For my sanity that also involved re-wiring everything so I wasn't dragging one o
 
 **Total time spent: 0.75 hours**
 
+# May 28th 8PM: Fleshing out collision (pt1):
+
+Had a free moment this evening, so I started fleshing out the ball collision logic. I accidentally closed my lapse which took me out of my flow, so I thought I'd journal progress made till said lapse got cut.
+
+I started by doodling out a diagram, as all good planning sessions go :]
+
+<img width="607" height="464" alt="image" src="https://github.com/user-attachments/assets/3e658e34-b75a-42e0-acb8-a4ca0efe0805" />
+
+I decided to setup collision detection zones since I can't think of any other way to make the game not boring :]. I decided that I can figure out exactly how I do that about 20 minutes down the line.. past me really does hate future me huh...
+
+Regardless I defined my starting state which was simple enough:
+
+<img width="602" height="383" alt="image" src="https://github.com/user-attachments/assets/83bb838b-5926-4558-8e70-b12c24e5f326" />
+
+I've decided to keep the x speed constant for the time being, but obviously I can change that later :]. The plan is to increase the x speed every certain number of collisions.
+
+With that settled, I quickly drew together a flowchart of what I need it to do when certain things happen:
+
+<img width="593" height="890" alt="image" src="https://github.com/user-attachments/assets/8d9c4e76-4d58-48a6-b279-b2e511c99bb3" />
+
+I couldn't be asked to pull up another firefox window and change the lapse screen, so I free-styled it instead of using draw.io like a normal person.
+
+I then spent a bit of time pondering on my collision zones. I ended up settling for these two possiblities:
+
+<img width="538" height="631" alt="image" src="https://github.com/user-attachments/assets/aadc0dcc-da1c-4fca-b166-8c9ee3111322" />
+
+The top one is obvioulsy easier IC count wise, but the latter is definitely more fun I think. My first instict was to use XNORs for the collision, but that seemed pretty futile on the whole. 
+
+After some thinking I realised that I can still use the XNORs for X, or actually I mean ANDs. Since the paddle's x coordinate is fixed, I just need to make sure that the bits of the paddle coordinate, and the ball coordinate are the same, so just some ands should do that just fine.
+
+The Y is where it gets finnicky of course. Some brainstorming later, I came upon a rather elegant solution. My second instinct after thinking of XNORs, was Comparators, but then, since I'm using a 10 bit coordinate system, that would spiral even faster than the XNORs would. Enter the SUBTRACTOR 8000! _cough_ 
+
+The idea is to use subtractors to precompute the distance of the ball between the top of the paddle. Using this precomputed value, I can eliminate all non collisions pretty easily by just checking either the sign bit, or if its larger than 5 bits (i.e >64). Using these values I can probably just use XNORs or something of the sort to modidy the dir and speed as appropriate. Now that I think of it, I'm not exactly sure how I'll do the second part, of comparing the distance value, but thats something I can figure out in due time :]
+
+<img width="610" height="762" alt="image" src="https://github.com/user-attachments/assets/67326b42-78f4-4f23-a87b-10fdbe2526b8" />
+
+https://lapse.hackclub.com/timelapse/MP8ELsTG_pK4
+
+**Total time spent: 0.75 hours**
 
 
 
