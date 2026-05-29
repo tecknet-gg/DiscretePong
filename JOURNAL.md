@@ -1177,6 +1177,40 @@ https://lapse.hackclub.com/timelapse/MP8ELsTG_pK4
 **Total time spent: 0.75 hours**
 
 
+# May 29th 8PM: Fleshing out collision (pt.2)
 
+With the plan made last session, I began by implementing my subtractor for the balls. It took me a moment to dig up my ball coordinate signal, since I didn't tie it into a tunnel when I was working on that. Anyawys I subtract the paddle y and the ball y in an 11bit signed operation, to give me the difference. 
+
+<img width="377" height="190" alt="image" src="https://github.com/user-attachments/assets/ed63b2ef-3e6f-43c6-9039-606220cc24db" />
+
+With that, I started thinking about how I was going to do the detection zones. I decided relatively quickly to stick with just three detection zones, since I figured I'd have to use 8bit comparators at the least, so thats 2 per check, so 3 checks per paddle seemed more reasonable than 5, (6ICs vs 10ICs per paddle). With that, I wrote out the boolean logic roughly:
+
+<img width="530" height="766" alt="image" src="https://github.com/user-attachments/assets/611a8671-09a1-4236-8ba2-b01016ca1d53" />
+
+With that, I started breaking out my singals, and laying out the comparators to produce three unique signals for the detection zones:
+
+<img width="475" height="332" alt="image" src="https://github.com/user-attachments/assets/a3e7ca19-5423-477d-9fca-ca0fe9c2c7fa" />
+
+To my suprise, it was working decently well, pretty much immediately. The only finicky one was the top zone (Z3). I built the usual debug setup:
+
+<img width="463" height="655" alt="image" src="https://github.com/user-attachments/assets/f46760b6-a1a4-47b4-853d-4dd1380cdbdb" />
+
+And started doing the actual binary algebra myself:
+
+<img width="531" height="433" alt="image" src="https://github.com/user-attachments/assets/8abf6513-38ea-4146-8da5-9f44fd7685b1" />
+
+Weirdly, my subtractor wasn't doing what I thought it would have... I think theres some detail I might have forgotten about the implementation of the paddle counters. I don't really want to pour over my piss poor documentation, so after flailing around and inverting some things I thought would fix it, in a rather frantic approach, I settled down, and figured I'd just expand the detection hitbox. I thought of it as just making the hitbox larger than the paddle sprite like you would in a game engine to be more forgivng.
+
+I decided to extend the top and bottom by 10, whilst keeping the middle zone untouched.
+
+<img width="632" height="533" alt="image" src="https://github.com/user-attachments/assets/1b0b3aef-2e12-45db-aec0-6739e1e9f6b6" />
+
+It does mean one more comparator and a bit more logic, but I should be able to cheese a half decent detection system using this 🤞.
+
+Anyways as much as I want to fool myself into thinking that this is A Level Electronics revision for my mocks next week, it really isn't. I really should start reading the semiconductors chapter ;-;. And that brings us to the end of this session :]
+
+Pretty happy with the progress. Just a bit more work and I should have a decently decent system, which I can then tie into the x detection (which should be trivial), et voila, collision! After that its just game score tracking, and I've actually done a commendable job of adding simple switches all over the place, so I should just be able to collate those and have a functional game! Fun! Till next time :]
+
+**Total time spent: 1.35 hours**
 
 
