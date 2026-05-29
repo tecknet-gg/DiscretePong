@@ -1211,6 +1211,6 @@ Anyways as much as I want to fool myself into thinking that this is A Level Elec
 
 Pretty happy with the progress. Just a bit more work and I should have a decently decent system, which I can then tie into the x detection (which should be trivial), et voila, collision! After that its just game score tracking, and I've actually done a commendable job of adding simple switches all over the place, so I should just be able to collate those and have a functional game! Fun! Till next time :]
 
-**Total time spent: 1.35 hours**
+**Total time spent: 1.5 hours**
 
 
