@@ -1215,4 +1215,23 @@ https://lapse.hackclub.com/timelapse/25vP7mW6ALDl
 
 **Total time spent: 1.5 hours**
 
+# June 2nd 4PM: Timeline shift + async rectification
+
+A small update today. So I've decided to hard pivot in terms of the project. Since my IC count keeps balooning, mainly since my design approach is a bit higher level than a traditional implementation (by that I mean I've paramaterised a lot of things so they can be modified, instead of hard coding which saves a lot of ics...). Over the last few weeks, my confidence in being able to get this working on breadboards has waned just a tad bit.. especially after budgeting, and bringing me to a total of about $60 for just breadboards and basic components that I would need, plus the logistical nightmare that it is... So after some consulting, I've decided to pivot to using an FPGA (Tang Nano 9k) since my simulator will easily export to HDL. I can verify and make adjustments that way, and then I think I'll jump directly to PCBs. Doing a cost estimate, I can save at least $50 that way, and its probably way faster. PCBs obviously will cost a bit, but a ~$7/ 4 layer 100x100mm pcb * say 6 modules, shouldn't break the bank. 
+
+
+
+Anyways besides that, I fixed a small issue that I noted, being my logic was async. If i knew better, I would have designed differntly from the start, but its too far gone to go back now I think, so I've just registered the key outputs, namely the SYNCs and the RGB signals:
+
+<img width="598" height="462" alt="image" src="https://github.com/user-attachments/assets/f192d8dd-2866-4ee7-bee5-d9fb7b1e9b58" />
+
+For the sync:
+
+<img width="164" height="178" alt="image" src="https://github.com/user-attachments/assets/dfccb21e-2ba6-4a17-a5c1-868f2371278d" />
+
+<img width="580" height="500" alt="image" src="https://github.com/user-attachments/assets/e6ee65d2-544a-41cc-b049-e12d91be1328" />
+
+No obvious change in performance in the sim, but it should help with signals. The only other thing I can do to address this further is making my slower clocks derive from the main clock, which I will do eventually. That was pretty much it for today :]
+
+**Total time spent: 0.75 hours**
 
