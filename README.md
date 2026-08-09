@@ -16,6 +16,7 @@ After the simulation is completed, I'll build it out on a breadboard before movi
 | Master Reset                  | Complete | Simple latch. Has a START and RESET button. Enables global rendering pipeline.                                           |
 
 
+<img width="1530" height="926" alt="image" src="https://github.com/user-attachments/assets/381116bd-11cd-400b-a2f5-c23a78dda6bb" />
 
 
 
